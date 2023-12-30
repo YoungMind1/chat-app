@@ -38,10 +38,35 @@ const registerUser = async (request, response) => {
         const token = createToken(user._id);
 
         response.status(200).json({ _id: user._id, name, email, token });
-    } catch(error) {
+    } catch (error) {
         console.error(error);
         return response.status(500).json("Server error! please contact the server admin.");
     }
 }
 
-module.exports = { registerUser }
+const loginUser = async (request, response) => {
+    const { email, password } = request.body;
+
+    try {
+        const user = await userModel.findOne({ email });
+
+        if (!user) {
+            return response.status(400).json("Invalid email or password");
+        }
+
+        const isValidPassword = await bcrypt.compare(password, user.password);
+
+        if (!isValidPassword) {
+            return response.status(400).json("Invalid email or password");
+        }
+
+        const token = createToken(user._id);
+
+        response.status(200).json({_id: user._id, name: user.name, email, token})
+
+    } catch (error) {
+
+    }
+}
+
+module.exports = { registerUser, loginUser }
