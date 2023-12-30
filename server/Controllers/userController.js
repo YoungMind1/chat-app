@@ -65,6 +65,8 @@ const loginUser = async (request, response) => {
         response.status(200).json({_id: user._id, name: user.name, email, token})
 
     } catch (error) {
+        console.log(error);
+        return response.status(500).json("Server error! please contact the server admin.");
 
     }
 }
