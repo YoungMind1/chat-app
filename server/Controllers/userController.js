@@ -82,4 +82,15 @@ const findUser = async(request, response) => {
     }
 }
 
-module.exports = { registerUser, loginUser, findUser }
+const getUsers = async(request, response) => {
+    try {
+        const users = await userModel.find();
+
+        response.status(200).json(users);
+    } catch(error) {
+        console.log(error);
+        return response.status(500).json("Server error! please contact the server admin.");
+    }
+}
+
+module.exports = { registerUser, loginUser, findUser, getUsers }
