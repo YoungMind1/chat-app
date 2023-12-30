@@ -7,7 +7,7 @@ import {Container} from "react-bootstrap";
 
 function App() {
   return (
-  <Container>
+  <Container className="text-secondary">
     <Routes>
       <Route path="/" element={<Chat/>} />
       <Route path="/register" element={<Register />} />
