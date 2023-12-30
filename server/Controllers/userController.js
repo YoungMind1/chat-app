@@ -67,8 +67,19 @@ const loginUser = async (request, response) => {
     } catch (error) {
         console.log(error);
         return response.status(500).json("Server error! please contact the server admin.");
-
     }
 }
 
-module.exports = { registerUser, loginUser }
+const findUser = async(request, response) => {
+    const userId = request.params.userId;
+    try {
+        const user = await userModel.findById(userId);
+
+        response.status(200).json(user);
+    } catch(error) {
+        console.log(error);
+        return response.status(500).json("Server error! please contact the server admin.");
+    }
+}
+
+module.exports = { registerUser, loginUser, findUser }
