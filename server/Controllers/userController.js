@@ -38,7 +38,7 @@ const registerUser = async (request, response) => {
         const token = createToken(user._id);
 
         response.status(200).json({ _id: user._id, name, email, token });
-    } catch {
+    } catch(error) {
         console.error(error);
         return response.status(500).json("Server error! please contact the server admin.");
     }
