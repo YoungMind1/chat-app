@@ -1,16 +1,20 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const userRoute = require("./Routes/userRoute");
+
 require("dotenv").config();
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
+app.use("/api/users", userRoute);
 
 app.get("/", (request, response) => {
     response.send("Welcome to our chat app APIs. ...");
 })
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, (request, response) => {
