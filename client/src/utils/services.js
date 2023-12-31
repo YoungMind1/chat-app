@@ -7,8 +7,8 @@ export const postRequest = async (url, body) => {
             "Content-Type": "application/json"
 
         },
-        body
-    })
+        body,
+    });
     const data = await response.json();
     //do we have an error?
     if (!response.ok) {
