@@ -25,23 +25,23 @@ To use the app, follow these steps:
 
 ### Authentication APIs
 
-- Node.js Authentication API: [^1^][1]
-- Protecting Routes: [^2^][2]
-- Login User: [^3^][3]
-- Logout User: [^4^][4]
-- Register User: [^5^][5]
+- Node.js Authentication API
+- Protecting Route
+- Login User
+- Logout User
+- Register User
 
 ### Chat APIs
 
-- Chat APIs: 
-- Fetch Chats: 
-- List Chats: 
-- Create Chats: 
+- Chat APIs 
+- Fetch Chats 
+- List Chats
+- Create Chats 
 
 ### Messages APIs
 
-- Get Messages: 
-- Send Messages: 
+- Get Messages 
+- Send Messages 
 
 ## Contributing
 
