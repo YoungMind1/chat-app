@@ -3,7 +3,7 @@
 ## Description
 
 This is a real-time chat app built using React, ContextAPI, Node.js and Socket.io. The app allows users to register, log in, and start chatting with other users in real-time.
-This project is the final project for the course "Web Development" of Urmia University in Winter 2024 which is taught by Dr. Asgharian.
+This project is the final project for the course "Web Development" of Urmia University in Fall 2023 which is taught by Dr. Asgharian.
 
 ## Installation
 
