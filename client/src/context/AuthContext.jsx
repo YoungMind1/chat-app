@@ -3,14 +3,18 @@ import { createContext, useCallback, useEffect, useState } from "react";
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
+
   const [user, setUser] = useState(null);
   const [registerError, setRegisterError] = useState(null);
-  const [isRegisterLoading, setRegisterLoading] = useState(null);
+  const [isRegisterLoading, setRegisterLoading] = useState(false);
   const [registerInfo, setRegisterInfo] = useState({
     name: "",
     email: "",
     password: "",
   });
+
+  const [loginError, setloginError] = useState(null);
+  const [isloginLoading, setIsloginLoading] = useState(false);
   const [loginInfo, setLoginInfo] = useState({
     email: "",
     password: "",
@@ -24,6 +28,10 @@ export const AuthContextProvider = ({ children }) => {
 
   const updateRegisterInfo = useCallback((info) => {
     setRegisterInfo(info);
+  }, []);
+
+  const updateLoginInfo = useCallback((info) => {
+    setLoginInfo(info);
   }, []);
 
   const registerUser = useCallback(async (e) => {
@@ -48,17 +56,35 @@ export const AuthContextProvider = ({ children }) => {
     [registerInfo]
   );
 
-  const loginUser = useCallback(async() => {
+  const loginUser = useCallback(async (e) => {
+    e.preventDefault()
+    
+    setIsloginLoading(true);
+    setloginError(null);
+
+
     const response = await postRequest(
       `${baseUrl}/users/login`,
       JSON.stringify(loginInfo)
     );
+
+    setIsloginLoading(false)
+
+    if (response.error) {
+      return setloginError(response);
+    }
+
+    localStorage.setItem("User", JSON.stringify(response))
+    setUser(response);
+
   }, [loginInfo])
 
   const logoutUser = useCallback(() => {
     localStorage.removeItem("User");
     setUser(null)
   }, [])
+
+
 
   return (
     <AuthContext.Provider
@@ -69,7 +95,12 @@ export const AuthContextProvider = ({ children }) => {
         registerUser,
         registerError,
         isRegisterLoading,
-        logoutUser
+        logoutUser,
+        loginUser,
+        loginError,
+        loginInfo,
+        updateLoginInfo,
+        isloginLoading,
       }}
     >
       {children}
