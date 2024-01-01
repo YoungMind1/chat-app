@@ -58,11 +58,11 @@ To contribute to the project, follow these steps:
 
 This project was built by:
 
-- Amirhossein Azhdarnezhad (Authentication APIs and Socket.io)
-- Mobin Kheibary (react-router-dom v6, React Bootstrap, and Context API)
-- Bardia Talebian (Register User, Protecting Routes, Logout User, and Login User)
-- Alisa Hosseinabadi (Chat APIs, Messages APIs, and Fetch Chats)
-- Arash Demokri (List Chats and Create Chats)
+- [Amirhossein Azhdarnezhad](https://github.com/YoungMind1) (Authentication APIs and Socket.io)
+- [Mobin Kheibary](https://github.com/Mobiwn) (react-router-dom v6, React Bootstrap, and Context API)
+- [Bardia Talebian](https://github.com/BradTZ8) (Register User, Protecting Routes, Logout User, and Login User)
+- [Alisa Hosseinabadi](https://github.com/AlisaHa8080) (Chat APIs, Messages APIs, and Fetch Chats)
+- [Arash Demokri](https://github.com/arash0984) (List Chats and Create Chats)
 - Moein Rezazadeh (Get Messages and Send Messages)
 
 ## License
