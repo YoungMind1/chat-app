@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cors());
 app.use("/api/users", userRoute);
 app.use("/api/chat", chatRoute);
-app.use("/api/message", messsageRoute);
+app.use("/api/messages", messsageRoute);
 
 
 app.get("/", (request, response) => {
