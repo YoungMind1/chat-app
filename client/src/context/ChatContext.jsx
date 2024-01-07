@@ -13,6 +13,8 @@ export const ChatContextProvider = ({ children, user }) => {
     const [isMessagesLoading, setIsMessagesLoading] = useState(false)
     const [messagesError, setMessagesError] = useState(null)
 
+    console.log("messages", messages)
+
 
 
     useEffect(()  =>{
@@ -89,7 +91,7 @@ export const ChatContextProvider = ({ children, user }) => {
         };
 
         getMessages();
-    }, [user]);
+    }, [currentChat]);
 
     const updateCurrentChat = useCallback((chat)=>{
         setCurrentChat(chat)
