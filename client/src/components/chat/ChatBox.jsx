@@ -1,6 +1,15 @@
-const ChatBox = () => {
-    return ( <>ChatBox</> );
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import { ChatContext } from "../../context/ChatContext";
+import { useFetchRecipientUser } from "../../hooks/useFetchRecipient";
 
+const ChatBox = () => {
+    const {user} = useContext(AuthContext)
+    const {currentChat, messages, isMessagesLoading} = useContext(ChatContext)
+    const {recipientUser} = useFetchRecipientUser (currentChat, user)
+
+
+    return ( <>ChatBox</> );
 }
 
 export default ChatBox;
