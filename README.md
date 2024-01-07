@@ -63,7 +63,7 @@ This project was built by:
 - [Bardia Talebian](https://github.com/BradTZ8) (Register User, Protecting Routes, Logout User, and Login User)
 - [Alisa Hosseinabadi](https://github.com/AlisaHa8080) (Chat APIs, Messages APIs, and Fetch Chats)
 - [Arash Demokri](https://github.com/arash0984) (List Chats and Create Chats)
-- Moein Rezazadeh (Get Messages and Send Messages)
+- [Moein Rezazadeh](https://github.com/moeinrez79) (Get Messages and Send Messages)
 
 ## License
 
