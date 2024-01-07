@@ -6,7 +6,7 @@ const Chat = () => {
 
   const { user } = useContext(AuthContext);
 
-  const { userChats, isUserChatsLoading, userChatsError } = useContext(ChatContext);
+  const { userChats, isUserChatsLoading, updateCurrentChat } = useContext(ChatContext);
 
 
   return (
@@ -18,7 +18,7 @@ const Chat = () => {
             {isUserChatsLoading && <p>loading chats...</p>}
             {userChats?.map((chat,index)=>{
               return(
-                <div>key={index}
+                <div>key={index} onClick = {() => updateCurrentChat(chat)}
                   <userChat chat={chat} user={user}/>
                 </div>
               )
