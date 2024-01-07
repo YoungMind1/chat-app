@@ -8,7 +8,7 @@ export const ChatContextProvider = ({ children, user }) => {
     const [isUserChatsLoading, setIsUserChatsLoading] = useState(false);
     const [userChatsError, setUserChatsError] = useState(null);
     const [potentialchats , setPotentialChats] = useState([]);
-
+    const [currentChat, setCurrentChat] = useState(null)
 
 
 
@@ -68,6 +68,10 @@ export const ChatContextProvider = ({ children, user }) => {
         getUserChats();
     }, [user]);
 
+    const updateCurrentChat = useCallback((chat)=>{
+        setCurrentChat(chat)
+    }, [])
+
 
     const creatChat = useCallback(async(firstId, secondId) =>{
         const response = await postRequest(
@@ -97,6 +101,7 @@ export const ChatContextProvider = ({ children, user }) => {
                 userChatsError,
                 potentialchats,
                 creatChat,
+                updateCurrentChat,
 
             }}
         >
