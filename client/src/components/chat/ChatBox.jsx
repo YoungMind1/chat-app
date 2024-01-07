@@ -12,8 +12,15 @@ const ChatBox = () => {
         <p style={{ textAlign: "center", width: "100%"}}>
             No Conversation selected yet...
         </p>
-    )
+    );
+
+    if (!isMessagesLoading) return(
+        <p style={{ textAlign: "center", width: "100%"}}>
+            Loading Chat...
+        </p>
+    );
+
     return ( <>ChatBox</> );
-}
+};
 
 export default ChatBox;
