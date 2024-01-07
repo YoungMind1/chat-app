@@ -24,7 +24,7 @@ const Chat = () => {
               )
             })}
           </Stack>
-          <p>ChatBox</p>
+          <ChatBox/>
         </Stack>
       )}
     </Container>
