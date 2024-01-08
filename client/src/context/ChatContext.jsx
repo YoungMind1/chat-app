@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useCallback } from "react";
 import { baseUrl, getRequest, postRequest } from "../utils/services";
 
 export const ChatContext = createContext();
@@ -93,10 +93,24 @@ export const ChatContextProvider = ({ children, user }) => {
         getMessages();
     }, [currentChat]);
 
+
+    const sendTextMessage  = useCallback(async(textMessage, sender, currentChatId, setTextMessage) =>{
+        if(!textMessage) return console.log("You must type something...")
+
+        const response = await postRequest(
+            `&{baseUrl}/messages`, 
+            JSON.stringify({
+            chaId: currentChatId,
+            senderId: sender._id,
+            text: textMessage
+        }))
+
+    }, [])
+
+
     const updateCurrentChat = useCallback((chat)=>{
         setCurrentChat(chat)
     }, [])
-
 
     const creatChat = useCallback(async(firstId, secondId) =>{
         const response = await postRequest(
