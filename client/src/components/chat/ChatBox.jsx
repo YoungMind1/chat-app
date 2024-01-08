@@ -55,7 +55,7 @@ const ChatBox = () => {
                     frontFamily="nunito"
                     borderColor="rgba(72, 112, 223, 0.2"
                 />
-                <button className="send-btn" onClick={() => sendTextMessage(textMessage, user, currentChat._id, sendTextMessage)}>
+                <button className="send-btn" onClick={() => sendTextMessage(textMessage, user, currentChat._id, setTextMessage)}>
                     <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     width="16" 
