@@ -7,7 +7,8 @@ import InputEmoji from "react-input-emoji";
 
 const ChatBox = () => {
     const {user} = useContext(AuthContext)
-    const {currentChat, messages, isMessagesLoading} = useContext(ChatContext);
+    const {currentChat, messages, isMessagesLoading, sendTextMessage}
+     = useContext(ChatContext);
     const {recipientUser} = useFetchRecipientUser (currentChat, user);
     const [textMessage, setTextMessage] = useState("")
 
@@ -54,7 +55,7 @@ const ChatBox = () => {
                     frontFamily="nunito"
                     borderColor="rgba(72, 112, 223, 0.2"
                 />
-                <button className="send-btn">
+                <button className="send-btn" onClick={() => sendTextMessage(textMessage, user, currentChat._id, sendTextMessage)}>
                     <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     width="16" 
