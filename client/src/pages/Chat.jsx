@@ -30,3 +30,5 @@ const Chat = () => {
     </Container>
   );
 };
+
+export default Chat;
