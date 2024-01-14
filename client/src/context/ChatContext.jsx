@@ -46,6 +46,36 @@ export const ChatContextProvider = ({ children, user }) => {
         };
     }, [socket]);
 
+    useEffect(() => {
+        if (socket === null) {
+            return;
+        }
+
+        const recipientId = currentChat?.members?.find((id) => id !== user?._id);
+
+        socket.emit("sendMessage", {...newMessage, recipientId})
+
+    }, [newMessage]);
+
+    useEffect(() => {
+        if (socket === null) {
+            return;
+        }
+
+        socket.on("getMessage", (response) => {
+            if(currentChat?._id !== response.chatId) {
+                return;
+            }
+
+            setMessages((previous) => [...previous, response]);
+        });
+
+        return () => {
+            socket.off("getMessage");
+        }
+
+    }, [socket, currentChat]);
+
 
     useEffect(()  =>{
 
