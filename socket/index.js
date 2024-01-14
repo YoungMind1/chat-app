@@ -14,6 +14,12 @@ io.on("connection", (socket) => {
             userId,
             socketId: socket.id
         });
+    });
+
+    socket.on("disconnect", () => {
+        onlineUsers = onlineUsers.filter(user => user.socketId !== socket.id);
+
+        io.emit("getOnlineUsers", onlineUsers);
     })
 });
 

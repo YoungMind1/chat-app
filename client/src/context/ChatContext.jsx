@@ -16,6 +16,7 @@ export const ChatContextProvider = ({ children, user }) => {
     const [sendTextmessageError, setSendMessageError] = useState(null)
     const [newMessage, setNewMessage] = useState(null)
     const [socket, setSocket] = useState(null);
+    const [onlineUsers, setOnlineUsers] = useState([]);
 
     console.log("messages", messages)
 
@@ -35,6 +36,14 @@ export const ChatContextProvider = ({ children, user }) => {
         }
 
         socket.emit("addNewUser", user?._id);
+
+        socket.on("getOnlineUsers", (response) => {
+            setOnlineUsers(response);
+        });
+
+        return () => {
+            socket.off("getOnlineUsers");
+        };
     }, [socket]);
 
 
@@ -178,6 +187,7 @@ export const ChatContextProvider = ({ children, user }) => {
                 messagesError,
                 currentChat,
                 sendTextMessage,
+                onlineUsers,
             }}
         >
             {children}
