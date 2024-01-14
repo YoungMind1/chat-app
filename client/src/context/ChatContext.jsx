@@ -29,6 +29,13 @@ export const ChatContextProvider = ({ children, user }) => {
     }, [user]);
 
 
+    useEffect(() => {
+        if (socket === null) {
+            return;
+        }
+
+        socket.emit("addNewUser", user?._id);
+    }, [socket]);
 
 
     useEffect(()  =>{
