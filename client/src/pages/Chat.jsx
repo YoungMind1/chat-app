@@ -1,6 +1,10 @@
 import { useContext } from "react";
 import { Container, Stack } from "react-bootstrap";
 import { ChatContext } from "../context/ChatContext";
+import { AuthContext } from "../context/AuthContext";
+import ChatBox from "../components/chat/ChatBox";
+import UserChat from "../components/chat/userchat";
+import PotentialChats from "../components/chat/potentialChats";
 
 const Chat = () => {
 
