@@ -15,6 +15,7 @@ const Chat = () => {
 
   return (
     <Container>
+      <PotentialChats/>
       {userChats?.length < 1 ? null : (
         <Stack direction="horizontal" gap={4} 
         className="align-items-start">
