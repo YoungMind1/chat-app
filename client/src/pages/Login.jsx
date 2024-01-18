@@ -6,8 +6,6 @@ const Login = () => {
   const {
     loginUser,
     loginError,
-    loginInfo,
-    updateLoginInfo,
     isLoginLoading
   } = useContext(AuthContext);
 
@@ -29,17 +27,11 @@ const Login = () => {
               <Form.Control
                 type="email"
                 placeholder="Email"
-                onChange={(e) =>
-                  updateLoginInfo({ ...loginInfo, email: e.target.value })
-                }
               />
 
               <Form.Control
                 type="password"
                 placeholder="Password"
-                onChange={(e) =>
-                  updateLoginInfo({ ...loginInfo, password: e.target.value })
-                }
               />
 
               <Button
