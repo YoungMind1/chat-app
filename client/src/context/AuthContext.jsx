@@ -6,15 +6,15 @@ export const AuthContextProvider = ({ children }) => {
 
   const [user, setUser] = useState(null);
   const [registerError, setRegisterError] = useState(null);
-  const [isRegisterLoading, setRegisterLoading] = useState(false);
+  const [isRegisterLoading, setIsRegisterLoading] = useState(false);
   const [registerInfo, setRegisterInfo] = useState({
     name: "",
     email: "",
     password: "",
   });
 
-  const [loginError, setloginError] = useState(null);
-  const [isloginLoading, setIsloginLoading] = useState(false);
+  const [loginError, setLoginError] = useState(null);
+  const [isLoginLoading, setIsLoginLoading] = useState(false);
   const [loginInfo, setLoginInfo] = useState({
     email: "",
     password: "",
@@ -36,7 +36,7 @@ export const AuthContextProvider = ({ children }) => {
 
   const registerUser = useCallback(async (e) => {
     e.preventDefault();
-    setRegisterLoading(true)
+    setIsRegisterLoading(true)
     setRegisterError(null)
 
     const response = await postRequest(
@@ -59,8 +59,8 @@ export const AuthContextProvider = ({ children }) => {
   const loginUser = useCallback(async (e) => {
     e.preventDefault()
     
-    setIsloginLoading(true);
-    setloginError(null);
+    setIsLoginLoading(true);
+    setLoginError(null);
 
 
     const response = await postRequest(
@@ -68,10 +68,10 @@ export const AuthContextProvider = ({ children }) => {
       JSON.stringify(loginInfo)
     );
 
-    setIsloginLoading(false)
+    setIsLoginLoading(false)
 
     if (response.error) {
-      return setloginError(response);
+      return setLoginError(response);
     }
 
     localStorage.setItem("User", JSON.stringify(response))
@@ -100,7 +100,7 @@ export const AuthContextProvider = ({ children }) => {
         loginError,
         loginInfo,
         updateLoginInfo,
-        isloginLoading,
+        isLoginLoading,
       }}
     >
       {children}

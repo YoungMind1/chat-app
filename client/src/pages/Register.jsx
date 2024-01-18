@@ -7,7 +7,7 @@ const Register = () => {
 
   return (
     <>
-      <Form onsubmit={registerUser}>
+      <Form onSubmit={registerUser}>
         <Row
           style={{
             height: "100vh",

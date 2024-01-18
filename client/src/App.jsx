@@ -17,9 +17,9 @@ function App() {
       <NavBar />
       <Container>
         <Routes>
-          <Route path="/" element={user ? <Chat /> : <login/>} />
+          <Route path="/" element={user ? <Chat /> : <Login/>} />
           <Route path="/register" element={user ? <Chat /> : <Register/>} />
-          <Route path="/login" element={user ? <Chat /> : <login/>} />
+          <Route path="/login" element={user ? <Chat /> : <Login/>} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Container>
