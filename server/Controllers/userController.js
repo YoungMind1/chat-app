@@ -11,7 +11,7 @@ const createToken = (id) => {
 
 const registerUser = async (request, response) => {
     try {
-        const { name, email, password } = request.body;
+        let { name, email, password } = request.body;
 
         let user = await userModel.findOne({ email });
 
@@ -31,9 +31,9 @@ const registerUser = async (request, response) => {
             return response.status(400).json("Password is not strong enough");
         }
 
-        const salt = await bcrypt.getSalt(10);
-        const userPassword = await bcrypt.hash(password, salt);
-        user = await userModel.create({ name, email, userPassword });
+        const salt = await bcrypt.genSalt(10);
+        password = await bcrypt.hash(password, salt);
+        user = await userModel.create({ name, email, password });
 
         const token = createToken(user._id);
 

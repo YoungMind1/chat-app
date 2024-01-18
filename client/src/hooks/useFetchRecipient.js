@@ -22,14 +22,14 @@ export const useFetchRecipientUser = (chat , user) =>{
             }
 
 
-            setrecipientuser(response);
+            setRecipientUser(response);
         
         };
 
-        getuser()
+        getUser()
 
 
     }, [recipientID]);
 
-    return{recipientuser }
+    return{recipientUser }
 };

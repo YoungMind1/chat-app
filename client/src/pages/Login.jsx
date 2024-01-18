@@ -8,7 +8,7 @@ const Login = () => {
     loginError,
     loginInfo,
     updateLoginInfo,
-    isloginLoading
+    isLoginLoading
   } = useContext(AuthContext);
 
   return (
@@ -45,7 +45,7 @@ const Login = () => {
               <Button
                 variant="primary"
                 type="submit">
-                {isloginLoading? "Getting in ...": "Login"}
+                {isLoginLoading? "Getting in ...": "Login"}
               </Button>
 
               {loginError?.error && (
